@@ -1,0 +1,83 @@
+﻿@page "/admin/haberler"
+@page "/admin"
+
+@inherits OwningComponentBase<IHaberRepository>
+
+
+<table class="table table-sm table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Haber Başlığı</th>
+            <th>Haber İçeriği</th>
+            <th>Haber Tarihi</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (HaberData?.Count() > 0)
+        {
+            @foreach (Haber p in HaberData)
+            {
+                <tr>
+                    <td>@p.HaberId</td>
+                    <td>@p.HaberBasligi</td>
+                    <th>@p.HaberIcerigi</th>
+                    <th>@p.HaberTarihi</th>
+                    <td>
+                        <NavLink class="btn btn-info btn-sm"
+                         href="@GetDetailsUrl(p.HaberId)">
+                            Details
+                        </NavLink>
+                        <NavLink class="btn btn-warning btn-sm"
+                         href="@GetEditUrl(p.HaberId)">
+                            Edit
+                        </NavLink>
+                        <button class="btn btn-danger btn-sm"
+                        @onclick="@(e=> DeleteHaber(p))">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" class="text-center">No Products</td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
+<NavLink class="btn btn-primary" href="/admin/haberler/create">
+    Create
+</NavLink>
+
+@code {
+    public IHaberRepository Repository => Service;
+
+    public IEnumerable<Haber> HaberData { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await UpdateData();
+    }
+
+    public async Task UpdateData()
+    {
+        HaberData = await Repository.Haberler.ToListAsync();
+    }
+
+    public async Task DeleteHaber(Haber p)
+    {
+        Repository.DeleteHaber(p);
+        await UpdateData();
+    }
+
+    public string GetDetailsUrl(long id) => $"/admin/haberler/details/{id}";
+    public string GetEditUrl(long id) => $"/admin/haberler/edit/{id}";
+}

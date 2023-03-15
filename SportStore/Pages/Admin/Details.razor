@@ -1,0 +1,50 @@
+﻿@page "/admin/haberler/details/{id:long}"
+
+<h3 class="bg-info text-white p-1">Details</h3>
+
+<table class="table table-sm table-bordered table-striped">
+    <tbody>
+        <tr>
+            <th>ID</th>
+            <td>@haber.HaberId</td>
+        </tr>
+        <tr>
+            <th>Haber ismi</th>
+            <td>@haber.HaberBasligi</td>
+        </tr>
+        <tr>
+            <th>Haber İçeriği </th>
+            <td>@haber.HaberIcerigi</td>
+        </tr>
+        <tr>
+            <th>Tarih</th>
+            <td>@haber.HaberTarihi</td>
+        </tr>
+        @*<tr>
+            <th>Price</th>
+            <td>@product.Price.ToString("c")</td>
+        </tr>*@
+    </tbody>
+</table>
+
+<NavLink class="btn btn-warning" href="@EditURl">Edit</NavLink>
+<NavLink class="btn btn-secondary" href="/admin/haberler">Back</NavLink>
+
+@code {
+    [Inject]
+    public IHaberRepository Repository { get; set; }
+
+    [Parameter]
+    public long Id { get; set; }
+    public Haber haber { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        haber = Repository.Haberler.FirstOrDefault(p =>
+            p.HaberId == Id);
+    }
+
+    public string EditURl => $"/admin/haberler/edit/{haber.HaberId}";
+
+
+}

@@ -1,0 +1,256 @@
+﻿@model Haber
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>DÜZCE HABER</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="/news-website/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">  
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/news-website/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/news-website/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top py-2 py-lg-0 px-lg-5">
+            <a href="index.html" class="navbar-brand d-block d-lg-none">
+                <h1 class="m-0 display-4 text-uppercase text-primary">HABERLER</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav mr-auto py-0">
+                    <a href="/Haber/Index" class="nav-item nav-link ">ANA SAYFA</a>
+                </div>
+                <div class="input-group ml-auto d-none d-lg-flex" style="width: 100%; max-width: 300px;">
+                    <input type="text" class="form-control border-0" placeholder="Arama yap...">
+                    <div class="input-group-append">
+                        <button class="input-group-text bg-primary text-dark border-0 px-3"><i
+                                class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+       </div>
+    <!-- Navbar End -->
+
+
+    <!-- News With Sidebar Start -->
+    <div class="container-fluid" style="margin-top: 80px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- News Detail Start -->
+                    <div class="position-relative mb-3">
+                        <img class="img-fluid w-100" src="~/news-website/img/indir.jfif" style="object-fit: cover;">
+                        <div class="bg-white border border-top-0 p-4">
+                            <div class="mb-3">
+                                <i class="fa-regular fa-calendar-days"></i>
+@*                                <span class="ml-1 text-body">@(((DateTime)Model.HaberTarihi).ToString("dd-MMM-yyyy"))</span>
+*@                            </div>
+                            <h1 class="mb-3 text-secondary text-uppercase font-weight-bold">@Model.HaberBasligi ...</h1>
+                            <p>@Model.HaberIcerigi</p>
+                           @* <p>Voluptua est takimata stet invidunt sed rebum nonumy stet, clita aliquyam dolores
+                                vero stet consetetur elitr takimata rebum sanctus. Sit sed accusam stet sit
+                                nonumy kasd diam dolores, sanctus lorem kasd duo dolor dolor vero sit et. Labore
+                                ipsum duo sanctus amet eos et. Consetetur no sed et aliquyam ipsum justo et,
+                                clita lorem sit vero amet amet est dolor elitr, stet et no diam sit. Dolor erat
+                                justo dolore sit invidunt.</p>*@
+
+                        </div>
+                    </div>
+                    <!-- News Detail End -->
+                </div>
+
+                <div class="col-lg-4">
+                    <!-- Social Follow Start -->
+                    <!-- <div class="mb-3">
+                        <div class="section-title mb-0">
+                            <h4 class="m-0 text-uppercase font-weight-bold">BİZİ TAKİP EDİN!</h4>
+                        </div>
+                        <div class="bg-white border border-top-0 p-3">
+                            <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #39569E;">
+                                <i class="fab fa-facebook-f text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                                <span class="font-weight-medium">12,345 Fans</span>
+                            </a>
+                            <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #52AAF4;">
+                                <i class="fab fa-twitter text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                                <span class="font-weight-medium">12,345 Followers</span>
+                            </a>
+                            <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #0185AE;">
+                                <i class="fab fa-linkedin-in text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                                <span class="font-weight-medium">12,345 Connects</span>
+                            </a>
+                            <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #C8359D;">
+                                <i class="fab fa-instagram text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                                <span class="font-weight-medium">12,345 Followers</span>
+                            </a>
+                            <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #DC472E;">
+                                <i class="fab fa-youtube text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                                <span class="font-weight-medium">12,345 Subscribers</span>
+                            </a>
+                            <a href="" class="d-block w-100 text-white text-decoration-none" style="background: #055570;">
+                                <i class="fab fa-vimeo-v text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                                <span class="font-weight-medium">12,345 Followers</span>
+                            </a>
+                        </div>
+                    </div> -->
+                    <!-- Social Follow End -->
+
+                    <!-- Ads Start -->
+                    <!-- <div class="mb-3">
+                        <div class="section-title mb-0">
+                            <h4 class="m-0 text-uppercase font-weight-bold">Advertisement</h4>
+                        </div>
+                        <div class="bg-white text-center border border-top-0 p-3">
+                            <a href=""><img class="img-fluid" src="img/news-800x500-2.jpg" alt=""></a>
+                        </div>
+                    </div> -->
+                    <!-- Ads End -->
+
+@*                    <!-- Popular News Start -->
+                    <div class="mb-3">
+                        <div class="section-title mb-0">
+                            <h4 class="m-0 text-uppercase font-weight-bold">Son Haberler</h4>
+                        </div>
+                        <div class="bg-white border border-top-0 p-3">
+                           
+                               
+                          
+                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
+                                <img class="img-fluid" src="~/news-website/img/indir.jfif" alt="">
+                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                    <div class="mb-2">
+                                        <i class="fa-regular fa-calendar-days"></i>
+                                        <small class="text-body ml-1">Jan 01, 2045</small>
+                                    </div>
+                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet elit...</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- Popular News End -->
+*@
+                    <!-- Newsletter Start -->
+                    <div class="mb-3">
+                        <div class="section-title mb-0">
+                            <h4 class="m-0 text-uppercase font-weight-bold">HABER BÜLTENİ</h4>
+                        </div>
+                        <div class="bg-white text-center border border-top-0 p-3">
+                            <p>Yeni haberlerden haberdar olmak için bültenimize kayıt olun!</p>
+                            <div class="input-group mb-2" style="width: 100%;">
+                                <input type="text" class="form-control form-control-lg" placeholder="Email Adresin">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary font-weight-bold px-3">KAYIT OL</button>
+                                </div>
+                            </div>
+                            <!-- <small>Lorem ipsum dolor sit amet elit</small> -->
+                        </div>
+                    </div>
+                    <!-- Newsletter End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- News With Sidebar End -->
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark pt-5 px-sm-3 px-md-5 mt-5">
+        <div class="container">
+            <div class="row py-2" style="margin-left:25rem ">
+                <div class="col-lg-6 col-md-3 mb-5" style="text-align:center >
+                    
+                <h5 class="mb-4 text-white text-uppercase font-weight-bold">İLETİŞİM</h5>
+                <p class="font-weight-medium"><i class="fa fa-map-marker-alt mr-2"></i>DÜZCE</p>
+                <p class="font-weight-medium"><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
+                <p class="font-weight-medium"><i class="fa fa-envelope mr-2"></i>duzcehaber@gmail.com</p>
+                <h6 class="mt-4 mb-3 text-white text-uppercase font-weight-bold">Bizi Takip Edin!</h6>
+                <div class="d-flex justify-content-start">
+                    <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-lg btn-secondary btn-lg-square" href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                </div>
+@*                <div class="col-lg-6 col-md-3 mb-5">
+                    <h5 class="mb-4 text-white text-uppercase font-weight-bold">POPÜLER HABERLER</h5>
+                    <div class="mb-3">
+                        <div class="mb-2">
+                            <i class="fa-regular fa-calendar-days text-white"></i>
+                            <!-- <small class="text-body ml-1 text-white">Jan 01, 2045</small> -->
+                            <small class="mt-4 mb-3 text-white font-weight-bold ml-1">Jan 01, 2045</small>
+                        </div>
+                        <a class="small text-body text-white text-uppercase font-weight-medium" href="">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
+                    </div>
+                    <div class="mb-3">
+                        <div class="mb-2">
+                            <i class="fa-regular fa-calendar-days text-white"></i>
+                            <small class="mt-4 mb-3 text-white font-weight-bold ml-1">Jan 01, 2045</small>
+                        </div>
+                        <a class="small text-body text-uppercase font-weight-medium" href="">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
+                    </div>
+                    <div class="">
+                        <div class="mb-2">
+                            <i class="fa-regular fa-calendar-days text-white"></i>
+                            <small class="mt-4 mb-3 text-white font-weight-bold ml-1">Jan 01, 2045</small>
+                        </div>
+                        <a class="small text-body text-uppercase font-weight-medium text-white" href="">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
+                    </div>
+                </div>
+*@            </div>
+        </div>
+    </div>
+    <div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #111111;">
+        <p class="m-0 text-center">&copy; <a href="#">DÜZCE HABER</a>. All Rights Reserved. 
+
+        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+        Design by <a href="https://htmlcodex.com">HTML Codex</a></p>
+    </div>
+    <!-- Footer End -->
+
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="/news-website/lib/easing/easing.min.js"></script>
+    <script src="/news-website/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/news-website/js/main.js"></script>
+</body>
+
+</html>
